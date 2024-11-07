@@ -53,6 +53,43 @@
     max-width: 164px;
     margin: auto 0 auto auto;
 }
+.checklist-baner__text.hidden {
+    display: none;
+}
+
+.checklist-baner__progressbar {
+    width: 100%;
+    height: 10px;
+    border-radius: 10px;
+    background-color: #E2E2E2;
+    margin-top: 40px;
+    position: relative;
+}
+.checklist-baner__progressbar-tumb {
+    position: absolute;
+    width: 0;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border-radius: 10px;
+    background-color: #B6009C;
+    transition: all .5s;
+}
+.checklist-baner__progressbar-label {
+    display: block;
+    position: absolute;
+    bottom: calc(100% + 12px);
+    left: 0;
+    background-color: #B6009C;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 16px;
+    padding: 4px;
+    border-radius: 4px;
+    color: #fff;
+    transition: all .5s;
+}
 
 .checklist-block__title {
     font-size: 22px;
@@ -162,6 +199,27 @@
 }
 
 
+.checklist-loading {
+    overflow: hidden;
+    padding: 52px 0 64px;
+    border-radius: 12px;
+    border: 4px solid #788CF7;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    transition: all .5s;
+    margin-bottom: 40px;
+}
+.checklist-loading svg {
+    animation: rotating 1s infinite running;
+}
+.checklist-loading.hidden {
+    margin-bottom: 0;
+    max-height: 0;
+    padding: 0;
+    border: 0px;
+}
+
 
 .circle-bg {
     fill: none;
@@ -227,4 +285,85 @@
     line-height: 24.38px;
     color: #B6009C;
     text-decoration: none;
+}
+
+.checklist-final__diagram {
+    margin: auto auto 32px auto;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.checklist-final__diagram svg path {
+    transition: all 1s;
+}
+.checklist-final__diagram svg path.active {
+    filter: grayscale(1);
+    animation: greyscaleRemove 4s;
+}
+.checklist-final__diagram svg path.active ~ path{
+    fill: #E6E6E6;
+}
+/*.checklist-final__diagram.low svg path.medium.active {*/
+/*}*/
+/*.checklist-final__diagram.low svg path.high.active {*/
+/*}*/
+.checklist-final__diagram_percentage {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-bottom: 20px;
+    font-family: Montserrat;
+    font-size: 32px;
+    font-weight: 900;
+    line-height: 1;
+    text-align: left;
+    color: #36383B;
+    transition: all 2s;
+}
+
+.checklist-final__diagram_percentage span {
+    font-family: Montserrat;
+    font-size: 32px;
+    font-weight: 900;
+    line-height: 1;
+    text-align: left;
+    color: #36383B;
+    transition: all 2s;
+}
+
+.checklist-final__diagram_percentage.low,
+.checklist-final__diagram_percentage.low span {
+    color: #F77878;
+}
+
+.checklist-final__diagram_percentage.medium,
+.checklist-final__diagram_percentage.medium span {
+    color: #F7C478;
+}
+
+.checklist-final__diagram_percentage.high,
+.checklist-final__diagram_percentage.high span {
+    color: #78F77D;
+}
+
+@keyframes greyscaleRemove {
+
+    from {
+        filter: grayscale(1);
+    }
+    to {
+        filter: grayscale(0);
+    }
+}
+
+@keyframes rotating {
+    from {
+        transform: rotate(0);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
 }

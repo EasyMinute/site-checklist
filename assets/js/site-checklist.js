@@ -5,6 +5,12 @@ document.addEventListener('DOMContentLoaded', function(){
         const checklistPrevs = checklistForm.querySelectorAll('.checklist-nav__prev')
         const checklistNexts = checklistForm.querySelectorAll('.checklist-nav__next')
 
+        const progressBarThumb = document.querySelector('.checklist-baner__progressbar-tumb');
+        const progressBarLabel = document.querySelector('.checklist-baner__progressbar-label');
+
+
+        updateProgressBar(checklistSteps, progressBarThumb, progressBarLabel)
+
         checklistPrevs.forEach(prev => {
             prev.addEventListener('click', function(e) {
                 e.preventDefault()
@@ -16,6 +22,7 @@ document.addEventListener('DOMContentLoaded', function(){
                         block.classList.add('hidden')
                     }
                 })
+                updateProgressBar(checklistSteps, progressBarThumb, progressBarLabel)
             })
         })
 
@@ -40,18 +47,55 @@ document.addEventListener('DOMContentLoaded', function(){
                         })
                     } else {
                         let points = countPoints()
-                        createCircleChart('checklist-final__circle', '#70F1AE', points);
-                        showFinal(points)
+                        showLoading(points)
+                        //
+                        // createCircleChart('checklist-final__circle', '#70F1AE', points);
+                        // showFinal(points)
                     }
                 }
+                updateProgressBar(checklistSteps, progressBarThumb, progressBarLabel)
             })
         })
     }
 
+    function showLoading(points) {
+        const loadingBlock = document.querySelector('.checklist-loading')
+        const banerTexts = document.querySelectorAll('.checklist-baner__text')
+        let stepBlocks = document.querySelectorAll('.checklist-step')
+        const progressBar = document.querySelector('.checklist-baner__progressbar');
+
+
+        if(banerTexts) {
+            banerTexts.forEach(text => {
+                if (text.classList.contains('loading')) {
+                    text.classList.remove('hidden')
+                } else {
+                    text.classList.add('hidden')
+                }
+            })
+        }
+
+        progressBar.style.display = 'none';
+        console.log('progressBar', progressBar)
+
+        stepBlocks.forEach(step => {
+            step.classList.add('hidden')
+        })
+
+        if(loadingBlock) {
+            loadingBlock.classList.remove('hidden')
+        }
+        window.setTimeout(function (){
+            showFinal(points)
+        }, 2000)
+    }
+
     function validateStep(stepNum) {
         let isValid = false;
+        let blockIsValid = false;
         const stepSection = checklistForm.querySelector('.checklist-step[data-step="'+stepNum+'"]')
         if (stepSection) {
+            let errCounter = 0
             const stepBlocks = stepSection.querySelectorAll('.checklist-block')
             stepBlocks.forEach(block => {
                 const textInputs = block.querySelectorAll('input[type="text"]');
@@ -79,11 +123,19 @@ document.addEventListener('DOMContentLoaded', function(){
                     block.classList.add('error')
                 }
 
+                if (!isValid) {
+                    errCounter++
+                }
+
 
             });
+
+            blockIsValid = errCounter === 0;
+
+            return blockIsValid
         }
 
-        return isValid
+        return blockIsValid
     }
 
     function countPoints() {
@@ -158,62 +210,117 @@ document.addEventListener('DOMContentLoaded', function(){
 
     function showFinal(percentage) {
         let finalBlock = document.querySelector('.checklist-final')
-        let stepBlocks = document.querySelectorAll('.checklist-step')
-        stepBlocks.forEach(step => {
-            step.classList.add('hidden')
-        })
+        const loadingBlock = document.querySelector('.checklist-loading')
+
+        const banerTexts = document.querySelectorAll('.checklist-baner__text')
+        if(banerTexts) {
+            banerTexts.forEach(text => {
+                if (text.classList.contains('final')) {
+                    text.classList.remove('hidden')
+                } else {
+                    text.classList.add('hidden')
+                }
+            })
+        }
+
+        if (loadingBlock) {
+            loadingBlock.classList.add('hidden')
+        }
+
         if (finalBlock) {
-            const finalTitles = finalBlock.querySelectorAll('.checklist-final__title')
-            const finalTexts = finalBlock.querySelectorAll('.checklist-final__text')
+
+
             if (percentage >= 0 && percentage <= 49) {
-                finalTitles.forEach(title => {
-                    if(title.classList.contains('low')) {
-                        title.classList.remove('hidden')
-                    } else {
-                        title.classList.add('hidden')
-                    }
-                })
-                finalTexts.forEach(text => {
-                    if(text.classList.contains('low')) {
-                        text.classList.remove('hidden')
-                    } else {
-                        text.classList.add('hidden')
-                    }
-                })
+                changeFinals(finalBlock, 'low', percentage)
             } else if (percentage > 49 && percentage <= 79) {
-                finalTitles.forEach(title => {
-                    if(title.classList.contains('medium')) {
-                        title.classList.remove('hidden')
-                    } else {
-                        title.classList.add('hidden')
-                    }
-                })
-                finalTexts.forEach(text => {
-                    if(text.classList.contains('medium')) {
-                        text.classList.remove('hidden')
-                    } else {
-                        text.classList.add('hidden')
-                    }
-                })
+                changeFinals(finalBlock, 'medium', percentage)
             } else if (percentage > 79 && percentage <= 100) {
-                finalTitles.forEach(title => {
-                    if(title.classList.contains('hight')) {
-                        title.classList.remove('hidden')
-                    } else {
-                        title.classList.add('hidden')
-                    }
-                })
-                finalTexts.forEach(text => {
-                    if(text.classList.contains('hight')) {
-                        text.classList.remove('hidden')
-                    } else {
-                        text.classList.add('hidden')
-                    }
-                })
+                changeFinals(finalBlock, 'high', percentage)
             }
         }
         finalBlock.classList.remove('hidden')
     }
 
-    // Example usage
+    function changeFinals(finalBlock, activeStatus, percentage) {
+
+        const finalTitles = finalBlock.querySelectorAll('.checklist-final__title')
+        const finalTexts = finalBlock.querySelectorAll('.checklist-final__text')
+        const finalDiagramPathes = finalBlock.querySelectorAll('.checklist-final__diagram svg path')
+        const finalPercentage = finalBlock.querySelector('.checklist-final__diagram_percentage')
+        const finalPercentageNum = finalPercentage.querySelector('span')
+
+        finalTitles.forEach(title => {
+            if(title.classList.contains(activeStatus)) {
+                title.classList.remove('hidden')
+            } else {
+                title.classList.add('hidden')
+            }
+        })
+        finalTexts.forEach(text => {
+            if(text.classList.contains(activeStatus)) {
+                text.classList.remove('hidden')
+            } else {
+                text.classList.add('hidden')
+            }
+        })
+        finalDiagramPathes.forEach(path => {
+            if(path.classList.contains(activeStatus)) {
+                path.classList.add('active')
+            } else {
+                path.classList.remove('active')
+            }
+        })
+
+        finalPercentage.classList.add(activeStatus);
+        animatePercentage(finalPercentageNum, percentage)
+        console.log('percentage', percentage)
+    }
+
+    function animatePercentage(finalPercentageNum, percentage) {
+        let currentValue = 0; // Starting value
+        const duration = 2000; // Animation duration in milliseconds (2 seconds)
+        const startTime = performance.now(); // Get the starting timestamp
+
+        function update() {
+            const currentTime = performance.now();
+            const elapsedTime = currentTime - startTime;
+            const progress = Math.min(elapsedTime / duration, 1); // Ensure progress doesn't go beyond 1
+
+            currentValue = Math.floor(progress * percentage); // Calculate the current value based on the progress
+            finalPercentageNum.textContent = currentValue; // Update the element's text
+
+            if (progress < 1) {
+                requestAnimationFrame(update); // Continue the animation
+            }
+        }
+
+        requestAnimationFrame(update); // Start the animation
+    }
+
+
+
+    function updateProgressBar(checklistSteps, progressBarThumb, progressBarLabel) {
+        // Find the current active step
+        const activeSection = document.querySelector('.checklist-step:not(.hidden)');
+
+        if (activeSection && checklistSteps) {
+            const currentStep = parseInt(activeSection.getAttribute('data-step'), 10);
+            const activeProgress = activeSection.getAttribute('data-progress');
+            const totalSteps = checklistSteps.length;
+
+            // Calculate the width percentage for the progress bar thumb
+            const minPercentage = 5; // Start with 5% for the first step
+            const maxPercentage = 95; // 95% for the last step
+
+            const progressPercentage = minPercentage + ((currentStep - 1) / (totalSteps - 1)) * (maxPercentage - minPercentage);
+
+            // Set the width of the progress bar thumb
+            progressBarThumb.style.width = `${progressPercentage}%`;
+            progressBarLabel.style.left = `${progressPercentage}%`;
+            progressBarLabel.textContent = activeProgress;
+        }
+    }
+
+    // Initial call to set progress on load
+    updateProgressBar();
 });

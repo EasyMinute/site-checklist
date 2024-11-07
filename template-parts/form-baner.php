@@ -18,6 +18,12 @@ $final_text = $content['baner']['final_text'];
     </div>
     <div class="checklist-baner__main">
         <h1><?= $title ?></h1>
-        <p><?= $form_text ?></p>
+        <p class="checklist-baner__text start"><?= $form_text ?></p>
+        <p class="checklist-baner__text loading hidden"><?= $loading_text ?></p>
+        <p class="checklist-baner__text final hidden"><?= $final_text  ?></p>
+    </div>
+    <div class="checklist-baner__progressbar">
+        <span class="checklist-baner__progressbar-label"></span>
+        <div class="checklist-baner__progressbar-tumb"></div>
     </div>
 </div>
