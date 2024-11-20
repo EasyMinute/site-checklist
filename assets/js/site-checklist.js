@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function(){
     const  checklistForm = document.querySelector('.proacto-form')
     if (checklistForm) {
+        console.log(calculateMaxPoints());
         const checklistSteps = checklistForm.querySelectorAll('.checklist-step')
         const checklistPrevs = checklistForm.querySelectorAll('.checklist-nav__prev')
         const checklistNexts = checklistForm.querySelectorAll('.checklist-nav__next')
@@ -138,6 +139,40 @@ document.addEventListener('DOMContentLoaded', function(){
         return blockIsValid
     }
 
+    function calculateMaxPoints() {
+        let totalPoints = 0;
+
+        // Select all checklist blocks
+        document.querySelectorAll('.checklist-block').forEach(block => {
+            const blockWeight = parseInt(block.getAttribute('data-weight')) || 1; // Default block weight to 1
+            let blockPoints = 5;
+
+            // Process inputs within the block
+            // let maxWeight = 0;
+            // block.querySelectorAll('input').forEach(input => {
+            //     const inputWeight = parseInt(input.getAttribute('data-weight')) || 0;
+            //     if (input.type === 'radio') {
+            //         // Add weight of selected radio button
+            //         const weight = parseInt(input.getAttribute('data-weight'), 10); // Get data-weight as an integer
+            //         if (weight > maxWeight) {
+            //             maxWeight = weight;
+            //             blockPoints += weight;
+            //         }
+            //     } else if (input.type === 'text') {
+            //         // Multiply weight by text input value
+            //         const inputValue = 5;
+            //         blockPoints += inputWeight * inputValue;
+            //     }
+            //     console.log('-----------')
+            // });
+
+            // Multiply block points by block weight
+            totalPoints += blockPoints * blockWeight;
+        });
+
+        return totalPoints;
+    }
+
     function countPoints() {
         const formBlocks = checklistForm.querySelectorAll('.checklist-block:not(.checklist-baner)')
         if (formBlocks) {
@@ -167,7 +202,10 @@ document.addEventListener('DOMContentLoaded', function(){
                 }
                 formSum += blockSum * blockWeight
             })
-            return formSum
+
+            let formPercents = formSum / calculateMaxPoints() * 100
+            return formPercents
+
         }
     }
 
@@ -229,6 +267,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
         if (finalBlock) {
 
+            console.log('percentage', percentage)
 
             if (percentage >= 0 && percentage <= 49) {
                 changeFinals(finalBlock, 'low', percentage)

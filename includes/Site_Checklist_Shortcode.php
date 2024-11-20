@@ -29,7 +29,18 @@ class Site_Checklist_Shortcode {
 		// Customize the output based on your form structure
 		ob_start();
 		?>
-		<form class="proacto-form">
+
+        <?php
+		$template_path = plugin_dir_path(__FILE__) . '../template-parts/hardcode_form.php';
+
+		if (file_exists($template_path)) {
+			include $template_path;
+		}
+        ?>
+
+        <?php if (false) : ?>
+
+		    <form class="proacto-form">
             <?php
             foreach ($form_content as $content) {
 
@@ -98,6 +109,7 @@ class Site_Checklist_Shortcode {
                 </div>
             </div>
 		</form>
+        <?php endif; ?>
 		<?php
 		return ob_get_clean();
 	}
