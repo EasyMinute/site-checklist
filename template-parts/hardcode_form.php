@@ -30,27 +30,27 @@
 			<div class="checklist-choise-wrap">
 				<input type="radio" name="comfort" id="checklist-field_comfort_0" class="checklist-field" data-weight="1">
 				<label for="checklist-field_comfort_0">
-					Зовсім незручна            </label>
+                    1 (зовсім незручна)</label>
 			</div>
 			<div class="checklist-choise-wrap">
 				<input type="radio" name="comfort" id="checklist-field_comfort_1" class="checklist-field" data-weight="2">
 				<label for="checklist-field_comfort_1">
-					Не дуже комфортна            </label>
+					2 </label>
 			</div>
 			<div class="checklist-choise-wrap">
 				<input type="radio" name="comfort" id="checklist-field_comfort_2" class="checklist-field" data-weight="3">
 				<label for="checklist-field_comfort_2">
-					Посередньо зручна            </label>
+					3 </label>
 			</div>
 			<div class="checklist-choise-wrap">
 				<input type="radio" name="comfort" id="checklist-field_comfort_3" class="checklist-field" data-weight="4">
 				<label for="checklist-field_comfort_3">
-					Скорше зручна, ніж незручна            </label>
+					4 </label>
 			</div>
 			<div class="checklist-choise-wrap">
 				<input type="radio" name="comfort" id="checklist-field_comfort_4" class="checklist-field" data-weight="5">
 				<label for="checklist-field_comfort_4">
-					Дуже зручна            </label>
+                    5 (дуже зручна) </label>
 			</div>
 		</div>
 
@@ -64,27 +64,27 @@
 			<div class="checklist-choise-wrap">
 				<input type="radio" name="readable" id="checklist-field_readable_0" class="checklist-field" data-weight="1">
 				<label for="checklist-field_readable_0">
-					Зовсім нечитабельні            </label>
+                    1 (зовсім нечитабельні) </label>
 			</div>
 			<div class="checklist-choise-wrap">
 				<input type="radio" name="readable" id="checklist-field_readable_1" class="checklist-field" data-weight="2">
 				<label for="checklist-field_readable_1">
-					Скоріше нечитабельні, ніж читабельні            </label>
+					2 </label>
 			</div>
 			<div class="checklist-choise-wrap">
 				<input type="radio" name="readable" id="checklist-field_readable_2" class="checklist-field" data-weight="3">
 				<label for="checklist-field_readable_2">
-					Посередньо читабельні            </label>
+					3 </label>
 			</div>
 			<div class="checklist-choise-wrap">
 				<input type="radio" name="readable" id="checklist-field_readable_3" class="checklist-field" data-weight="4">
 				<label for="checklist-field_readable_3">
-					Скоріше читабельні, ніж нечитабельні            </label>
+					4 </label>
 			</div>
 			<div class="checklist-choise-wrap">
 				<input type="radio" name="readable" id="checklist-field_readable_4" class="checklist-field" data-weight="5">
 				<label for="checklist-field_readable_4">
-					Дуже читабельні            </label>
+                    5 (дуже читабельні)            </label>
 			</div>
 		</div>
 
@@ -177,8 +177,8 @@
 				<p>Для визначення показників перейдіть на сайт <a href="https://pagespeed.web.dev/" target="_blank" rel="noopener">https://pagespeed.web.dev/</a>, додайте посилання на ваш сайт та поверніться в опитник, щоб вказати результати.</p>
 			</div>
 
-			<input type="text" name="quickaction1" id="checklist-field_quickaction1_0" class="checklist-field" data-weight="0.05" placeholder="Десктоп">
-			<input type="text" name="quickaction1" id="checklist-field_quickaction1_1" class="checklist-field" data-weight="0.05" placeholder="Мобайл">
+			<input type="text" name="quickaction1" id="checklist-field_quickaction1_0" class="checklist-field" data-weight="0.05" placeholder="Десктоп 1-100">
+			<input type="text" name="quickaction1" id="checklist-field_quickaction1_1" class="checklist-field" data-weight="0.05" placeholder="Мобайл 1-100">
 		</div>
 
 		<div class="checklist-block texted" data-weight="3">
@@ -309,11 +309,17 @@
                 Зверніть увагу на це поле    </span>
 			<p class="checklist-block__title">
 				Чи відповідає ваш сайт сучасним вимогам щодо безпеки?    </p>
-			<div class="checklist-block__description top">
-				<p>Для визначення показників перейдіть на сайт&nbsp;<a href="https://sitecheck.sucuri.net/" target="_blank" rel="noopener">https://sitecheck.sucuri.net/</a>, додайте посилання на ваш сайт та поверніться в опитник, щоб вказати результати.</p>
-			</div>
 
-			<input type="text" name="security1" id="checklist-field_security1_0" class="checklist-field" data-weight="5" placeholder="Відповідь тут">
+            <div class="checklist-choise-wrap">
+                <input type="radio" name="security1" id="checklist-field_security1_0" class="checklist-field" data-weight="5">
+                <label for="checklist-field_security_0">
+                    Так            </label>
+            </div>
+            <div class="checklist-choise-wrap">
+                <input type="radio" name="security1" id="checklist-field_security1_1" class="checklist-field" data-weight="1">
+                <label for="checklist-field_security_1">
+                    Ні            </label>
+            </div>
 		</div>
 
 		<div class="checklist-block choises" data-weight="2">
@@ -336,7 +342,7 @@
 			<div class="checklist-choise-wrap">
 				<input type="radio" name="security2" id="checklist-field_security2_2" class="checklist-field" data-weight="0">
 				<label for="checklist-field_security2_2">
-					Незнаю            </label>
+					Не знаю            </label>
 			</div>
 		</div>
 
@@ -360,7 +366,7 @@
 			<div class="checklist-choise-wrap">
 				<input type="radio" name="security3" id="checklist-field_security3_2" class="checklist-field" data-weight="0">
 				<label for="checklist-field_security3_2">
-					Незнаю            </label>
+					Не знаю            </label>
 			</div>
 		</div>
 
@@ -368,7 +374,7 @@
             <span class="checklist-block__validation">
                 Зверніть увагу на це поле    </span>
 			<p class="checklist-block__title">
-				Якщо є профіль, то чи є логування через смс, СоМе чи пошту?	</p>
+				Якщо є профіль, то чи є логування через смс, соцмережі чи пошту?	</p>
 
 
 			<div class="checklist-choise-wrap">
@@ -384,7 +390,7 @@
 			<div class="checklist-choise-wrap">
 				<input type="radio" name="security4" id="checklist-field_security4_2" class="checklist-field" data-weight="0">
 				<label for="checklist-field_security4_2">
-					Незнаю            </label>
+					Не знаю            </label>
 			</div>
 		</div>
 
