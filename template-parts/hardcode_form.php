@@ -133,11 +133,6 @@
 				<label for="checklist-field_comfort2_3">
 					Коректно            </label>
 			</div>
-            <div class="checklist-choise-wrap">
-                <input type="radio" name="comfort2" id="checklist-field_comfort2_4" class="checklist-field" data-weight="5">
-                <label for="checklist-field_comfort2_3">
-                    Коректно            </label>
-            </div>
 		</div>
 
 		<div class="checklist-step__foot">
@@ -181,17 +176,6 @@
 			<input type="text" name="quickaction1" id="checklist-field_quickaction1_1" class="checklist-field" data-weight="0.05" placeholder="Мобайл 1-100">
 		</div>
 
-		<div class="checklist-block texted" data-weight="3">
-            <span class="checklist-block__validation">
-                Зверніть увагу на це поле    </span>
-			<p class="checklist-block__title">
-				Вкажіть показник оптимізованості зображень. Які показники показує система?    </p>
-			<div class="checklist-block__description top">
-				<p>Для визначення показників перейдіть на сайт <a href="https://pagespeed.web.dev/" target="_blank" rel="noopener">https://pagespeed.web.dev/</a>, додайте посилання на ваш сайт та поверніться в опитник, щоб вказати результати.</p>
-			</div>
-
-			<input type="text" name="quickaction2" id="checklist-field_quickaction2_0" class="checklist-field" data-weight="0.05" placeholder="Відповідь тут">
-		</div>
 
 		<div class="checklist-step__foot">
 			<button class="checklist-nav__prev" data-step="1">
@@ -232,27 +216,27 @@
 			<div class="checklist-choise-wrap">
 				<input type="radio" name="functional2" id="checklist-field_functional2_0" class="checklist-field" data-weight="1">
 				<label for="checklist-field_functional2_0">
-					Дуже часто звертаються            </label>
+                    1 (дуже часто звертаються)            </label>
 			</div>
 			<div class="checklist-choise-wrap">
 				<input type="radio" name="functional2" id="checklist-field_functional2_1" class="checklist-field" data-weight="2">
 				<label for="checklist-field_functional2_1">
-					Часто звертаються            </label>
+					2          </label>
 			</div>
 			<div class="checklist-choise-wrap">
 				<input type="radio" name="functional2" id="checklist-field_functional2_2" class="checklist-field" data-weight="3">
 				<label for="checklist-field_functional2_2">
-					Посередньо звертаються            </label>
+					3          </label>
 			</div>
 			<div class="checklist-choise-wrap">
 				<input type="radio" name="functional2" id="checklist-field_functional2_3" class="checklist-field" data-weight="4">
 				<label for="checklist-field_functional2_3">
-					Рідко звертаються            </label>
+					4        </label>
 			</div>
 			<div class="checklist-choise-wrap">
 				<input type="radio" name="functional2" id="checklist-field_functional2_4" class="checklist-field" data-weight="5">
 				<label for="checklist-field_functional2_4">
-					Взагалі ніколи не звертаються            </label>
+                    5 (взагалі ніколи не звертаються)            </label>
 			</div>
 		</div>
 
@@ -312,13 +296,28 @@
 
             <div class="checklist-choise-wrap">
                 <input type="radio" name="security1" id="checklist-field_security1_0" class="checklist-field" data-weight="5">
-                <label for="checklist-field_security_0">
-                    Так            </label>
+                <label for="checklist-field_security1_0">
+                    Minimal            </label>
             </div>
             <div class="checklist-choise-wrap">
-                <input type="radio" name="security1" id="checklist-field_security1_1" class="checklist-field" data-weight="1">
-                <label for="checklist-field_security_1">
-                    Ні            </label>
+                <input type="radio" name="security1" id="checklist-field_security1_1" class="checklist-field" data-weight="4">
+                <label for="checklist-field_security1_1">
+                    Low        </label>
+            </div>
+            <div class="checklist-choise-wrap">
+                <input type="radio" name="security1" id="checklist-field_security1_2" class="checklist-field" data-weight="3">
+                <label for="checklist-field_security1_2">
+                    Medium Security Risk            </label>
+            </div>
+            <div class="checklist-choise-wrap">
+                <input type="radio" name="security1" id="checklist-field_security1_3" class="checklist-field" data-weight="2">
+                <label for="checklist-field_security1_3">
+                    High            </label>
+            </div>
+            <div class="checklist-choise-wrap">
+                <input type="radio" name="security1" id="checklist-field_security1_4" class="checklist-field" data-weight="1">
+                <label for="checklist-field_security1_4">
+                    Critical            </label>
             </div>
 		</div>
 

@@ -91,53 +91,59 @@ document.addEventListener('DOMContentLoaded', function(){
         }, 2000)
     }
 
+
     function validateStep(stepNum) {
         let isValid = false;
         let blockIsValid = false;
-        const stepSection = checklistForm.querySelector('.checklist-step[data-step="'+stepNum+'"]')
+        const stepSection = checklistForm.querySelector('.checklist-step[data-step="'+stepNum+'"]');
         if (stepSection) {
-            let errCounter = 0
-            const stepBlocks = stepSection.querySelectorAll('.checklist-block')
+            let errCounter = 0;
+            let firstInvalidBlock = null; // Track the first invalid block
+
+            const stepBlocks = stepSection.querySelectorAll('.checklist-block');
             stepBlocks.forEach(block => {
                 const textInputs = block.querySelectorAll('input[type="text"]');
                 const checkboxes = block.querySelectorAll('input[type="checkbox"]');
                 const radioButtons = block.querySelectorAll('input[type="radio"]');
 
-
-
                 if (textInputs.length > 0) {
-                    isValid = Array.from(textInputs).every(input => input.value.trim() !== '');
+                    isValid = Array.from(textInputs).every(input => {
+                        const value = input.value.trim();
+                        return value !== '' && !isNaN(value) && Number(value) >= 1 && Number(value) <= 100;
+                    });
                 } else if (checkboxes.length > 0) {
-                    // checkboxes.forEach(ch => {
-                    //     console.log('ch', ch.checked)
-                    // })
-
                     isValid = Array.from(checkboxes).some(checkbox => checkbox.checked);
-                    // console.log ('checkboxes', isValid)
                 } else if (radioButtons.length > 0) {
                     isValid = Array.from(radioButtons).some(radio => radio.checked);
                 }
 
                 if (isValid) {
-                    block.classList.remove('error')
+                    block.classList.remove('error');
                 } else {
-                    block.classList.add('error')
+                    block.classList.add('error');
+                    if (!firstInvalidBlock) {
+                        firstInvalidBlock = block; // Capture the first invalid block
+                    }
                 }
 
                 if (!isValid) {
-                    errCounter++
+                    errCounter++;
                 }
-
-
             });
 
             blockIsValid = errCounter === 0;
 
-            return blockIsValid
+            // Scroll to the first invalid block if it exists
+            if (firstInvalidBlock) {
+                firstInvalidBlock.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+
+            return blockIsValid;
         }
 
-        return blockIsValid
+        return blockIsValid;
     }
+
 
     function calculateMaxPoints() {
         let totalPoints = 0;
