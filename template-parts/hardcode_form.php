@@ -1,4 +1,4 @@
-<form class="proacto-form">
+<div class="proacto-form">
 
 	<div class="checklist-baner checklist-block">
 		<div class="checklist-baner__header">
@@ -116,22 +116,22 @@
 			<div class="checklist-choise-wrap">
 				<input type="radio" name="comfort2" id="checklist-field_comfort2_0" class="checklist-field" data-weight="1">
 				<label for="checklist-field_comfort2_0">
-					Зовсім некоректно            </label>
+                    1 (зовсім некоректно)</label>
 			</div>
 			<div class="checklist-choise-wrap">
 				<input type="radio" name="comfort2" id="checklist-field_comfort2_1" class="checklist-field" data-weight="2">
 				<label for="checklist-field_comfort2_1">
-					Скоріше некоректно            </label>
+					2            </label>
 			</div>
 			<div class="checklist-choise-wrap">
 				<input type="radio" name="comfort2" id="checklist-field_comfort2_2" class="checklist-field" data-weight="3">
 				<label for="checklist-field_comfort2_2">
-					Посередньо коректно            </label>
+					3            </label>
 			</div>
 			<div class="checklist-choise-wrap">
 				<input type="radio" name="comfort2" id="checklist-field_comfort2_3" class="checklist-field" data-weight="4">
 				<label for="checklist-field_comfort2_3">
-					Коректно            </label>
+					4 (коректно)            </label>
 			</div>
 		</div>
 
@@ -413,7 +413,7 @@
 			<div class="checklist-choise-wrap">
 				<input type="radio" name="security5" id="checklist-field_security5_2" class="checklist-field" data-weight="1">
 				<label for="checklist-field_security5_2">
-					Крекнуті            </label>
+					Крекнуті (неліцензійні) </label>
 			</div>
 			<div class="checklist-choise-wrap">
 				<input type="radio" name="security5" id="checklist-field_security5_3" class="checklist-field" data-weight="2">
@@ -805,27 +805,27 @@
 			<div class="checklist-choise-wrap">
 				<input type="radio" name="marketіng" id="checklist-field_marketіng_0" class="checklist-field" data-weight="5">
 				<label for="checklist-field_marketіng_0">
-					Повністю відповідає            </label>
+					5 (повністю відповідає)            </label>
 			</div>
 			<div class="checklist-choise-wrap">
 				<input type="radio" name="marketіng" id="checklist-field_marketіng_1" class="checklist-field" data-weight="4">
 				<label for="checklist-field_marketіng_1">
-					Здебільшого відповідає            </label>
+					4            </label>
 			</div>
 			<div class="checklist-choise-wrap">
 				<input type="radio" name="marketіng" id="checklist-field_marketіng_2" class="checklist-field" data-weight="3">
 				<label for="checklist-field_marketіng_2">
-					Не можу визначитись            </label>
+					3            </label>
 			</div>
 			<div class="checklist-choise-wrap">
 				<input type="radio" name="marketіng" id="checklist-field_marketіng_3" class="checklist-field" data-weight="2">
 				<label for="checklist-field_marketіng_3">
-					Здебільшого не відповідає            </label>
+					2            </label>
 			</div>
 			<div class="checklist-choise-wrap">
 				<input type="radio" name="marketіng" id="checklist-field_marketіng_4" class="checklist-field" data-weight="1">
 				<label for="checklist-field_marketіng_4">
-					Взагалі не відповідає            </label>
+                    1 (взагалі не відповідає) </label>
 			</div>
 		</div>
 
@@ -839,27 +839,27 @@
 			<div class="checklist-choise-wrap">
 				<input type="radio" name="marketіng24" id="checklist-field_marketіng24_0" class="checklist-field" data-weight="5">
 				<label for="checklist-field_marketіng24_0">
-					Повністю задоволений            </label>
+					5 (повністю задоволений)            </label>
 			</div>
 			<div class="checklist-choise-wrap">
 				<input type="radio" name="marketіng24" id="checklist-field_marketіng24_1" class="checklist-field" data-weight="4">
 				<label for="checklist-field_marketіng24_1">
-					Здебільшого задоволений            </label>
+					4            </label>
 			</div>
 			<div class="checklist-choise-wrap">
 				<input type="radio" name="marketіng24" id="checklist-field_marketіng24_2" class="checklist-field" data-weight="3">
 				<label for="checklist-field_marketіng24_2">
-					Не можу визначитись            </label>
+					3            </label>
 			</div>
 			<div class="checklist-choise-wrap">
 				<input type="radio" name="marketіng24" id="checklist-field_marketіng24_3" class="checklist-field" data-weight="2">
 				<label for="checklist-field_marketіng24_3">
-					Здебільшого не задоволений            </label>
+					2            </label>
 			</div>
 			<div class="checklist-choise-wrap">
 				<input type="radio" name="marketіng24" id="checklist-field_marketіng24_4" class="checklist-field" data-weight="1">
 				<label for="checklist-field_marketіng24_4">
-					Взагалі не задоволений            </label>
+					1 (взагалі не задоволений)            </label>
 			</div>
 		</div>
 
@@ -1028,47 +1028,6 @@
 			<a href="." class="checklist-final__refresh">
 				Пройти ще раз                    </a>
 		</div>
-        <div class="wpcf7 js" id="wpcf7-f523-o1" lang="uk" dir="ltr">
-            <div class="screen-reader-response"><p role="status" aria-live="polite" aria-atomic="true"></p> <ul></ul></div>
-
-            <div style="display: none;">
-                <input type="hidden" name="_wpcf7" value="523">
-                <input type="hidden" name="_wpcf7_version" value="5.9.8">
-                <input type="hidden" name="_wpcf7_locale" value="uk">
-                <input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f523-o1">
-                <input type="hidden" name="_wpcf7_container_post" value="0">
-                <input type="hidden" name="_wpcf7_posted_data_hash" value="">
-            </div>
-            <h2 class="is-fade">Бажаєте дізнатися більше?</h2>
-            <p>
-                Залиште запит і ми обовʼязково з вами звʼяжемосью
-            </p>
-
-            <label class="contact-form-element is-fade">
-                <span class="input-label-text">📪 Контактні дані</span>
-                <span class="wpcf7-form-control-wrap" data-name="your-contact"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" autocomplete="email" aria-required="true" aria-invalid="false" value="" type="text" name="your-contact"></span>
-            </label>
-
-            <label class="contact-form-element is-fade">
-                <span class="input-label-text">💬 Ваше повідомлення</span>
-                <span class="wpcf7-form-control-wrap" data-name="your-message"><textarea cols="40" rows="10" maxlength="2000" class="wpcf7-form-control wpcf7-textarea wpcf7-validates-as-required" aria-required="true" aria-invalid="false" name="your-message"></textarea></span>
-            </label>
-
-            <label for="acceptance-checkbox" class="contact-form-element is-fade acceptance">
-                <span class="wpcf7-form-control-wrap" data-name="acceptance-90"><span class="wpcf7-form-control wpcf7-acceptance optional"><span class="wpcf7-list-item"><input type="checkbox" name="acceptance-90" value="1" id="acceptance-checkbox" aria-invalid="false"></span></span></span>
-                <span> Я погоджуюся з </span>
-                <a target="_blank" href="google.com"> політикою конфеденційності</a>
-            </label>
-
-
-            <div class="contact-form-buttons">
-                <input class="wpcf7-form-control wpcf7-submit has-spinner button --secondary contact-form-element is-fade" type="submit" value="🚀 Shoot!"><span class="wpcf7-spinner"></span>
-                <div class="contact-form-buttons-social is-fade">
-                    <a target="_blank" class="icon icon--linkedin" href="https://www.linkedin.com/company/proacto"></a>
-                    <a target="_blank" class="icon icon--clutch" href="https://clutch.co/profile/proacto"></a>
-                </div>
-            </div><div class="wpcf7-response-output" aria-hidden="true"></div>
-
-        </div>
+        <?php echo do_shortcode('[contact-form-7 id="638d324" title="Untitled"]') ?>
 	</div>
-</form>
+</div>
